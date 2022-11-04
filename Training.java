@@ -5,7 +5,7 @@ import java.util.List;
 public class Training{
 
     // Reversing a string
-    public static String Reverse(String str){
+    public static String reverse(String str){
         StringBuilder out = new StringBuilder(str.length());
         char[] in = str.toCharArray();
         for(int i = str.length()-1; i >= 0; i--){
@@ -16,7 +16,7 @@ public class Training{
 
 
     // Character swap w/out 3rd variable
-    public static void Swap(int[] arr, int a, int b){
+    public static void swap(int[] arr, int a, int b){
         for(int i = 0; i < arr.length; i++){
             if(arr[i] == a){
                 arr[i] = b;
@@ -30,7 +30,7 @@ public class Training{
 
 
     // Check for vowels in a String
-    public static boolean HasVowels(String str){
+    public static boolean hasVowels(String str){
         char[] in = str.toLowerCase().toCharArray();
         char[] vowels = {'a', 'e', 'i', 'o', 'u'};
 
@@ -47,7 +47,7 @@ public class Training{
 
 
     // Check if a number is prime 
-    public static boolean IsPrime(int number){
+    public static boolean isPrime(int number){
         int aux = number;
         if(number <= 1)
             return false;
@@ -65,7 +65,7 @@ public class Training{
     
     
     // Remove whitespaces of a String 
-    public static String RmWhiteSpaces(String str){
+    public static String rmWhiteSpaces(String str){
         StringBuilder out = new StringBuilder(str.length());
         char[] in = str.toCharArray();
         for(int i = 0; i < str.length(); i++){
@@ -76,11 +76,11 @@ public class Training{
     }
     
     public static void main(String[] args){
-        // System.out.println(Reverse("Hello New World"));
+        // System.out.println(reverse("Hello New World"));
         // int[] test = {1, 2, 3, 4, 5};
-        // Swap(test, 3, 5);
-        // System.out.println(HasVowels("hll nw wrld"));
-        // System.out.println(IsPrime(79));;
-        // System.out.println(RmWhiteSpaces("   Hello New World   "));
+        // swap(test, 3, 5);
+        // System.out.println(hasVowels("hll nw wrld"));
+        // System.out.println(isPrime(79));;
+        // System.out.println(rmWhiteSpaces("   Hello New World   "));
     }
 }
