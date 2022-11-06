@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -73,6 +74,66 @@ public class Training{
                 out.append(in[i]);
         }
         return out.toString();
+    }
+
+
+    // Return the indexes of the ints whose sum are equal to target 
+    public int[] twoSum(int[] nums, int target) {
+        int i, j; 
+        i = 0; j = 0;
+        for(i = 0; i < nums.length-1; i++){
+            for(j = i+1; j < nums.length; j++){
+                if(nums[i] + nums[j] == target){
+                    int[] res = {i, j};
+                    return res;
+                }
+            }
+        }
+        int[] notFound = {0,0};
+        return notFound;
+    }
+
+
+    // Add two numbers in reverse order in a linked list
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        String n1 = listToReversedString(l1);
+        String n2 = listToReversedString(l2);
+
+        BigInteger res = new BigInteger(n1).add(new BigInteger(n2));
+
+        StringBuilder sss = new StringBuilder();
+        sss.append(res);
+
+        return stringToList(sss.reverse().toString());
+    }
+
+    public String listToReversedString(ListNode l){
+        StringBuilder res = new StringBuilder();
+        while(l != null){
+            res.append(l.val);
+            l = l.next;
+        }
+        res.reverse();
+        return res.toString();
+    }
+
+    public ListNode stringToList(String s){
+        ListNode res = null;
+        if(!s.isEmpty()){
+            res = new ListNode(Integer.parseInt(s.substring(0, 1)), stringToList(s.substring(1)));
+        }
+        else{
+            res=null;
+        }
+        return res;
     }
     
     public static void main(String[] args){
