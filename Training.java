@@ -135,6 +135,56 @@ public class Training{
         }
         return res;
     }
+
+
+
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int total_length = nums1.length + nums2.length;
+
+        int[] merged = new int[total_length]; 
+        
+        int i = 0;
+        int j = 0;
+        
+        for(;i < nums1.length && j < nums2.length;){
+            if(nums1[i] < nums2[j]){
+                merged[i+j] = nums1[i];
+                System.out.print(nums1[i]);
+                i++;
+            }
+            else{
+                merged[i+j] = nums2[j];
+                System.out.print(nums2[j]);
+                j++;
+            }
+        }
+        
+        while(i < nums1.length){
+            merged[i+j] = nums1[i];
+            i++;
+        }
+        
+        while(j < nums2.length){
+            merged[i+j] = nums2[j];
+            j++;
+        }
+
+        
+        if(total_length % 2 != 0){
+            int mid = total_length / 2;
+            return (double) merged[mid];
+        }
+        else{
+            int mid = total_length / 2;
+            return (double) (merged[mid] + merged[mid - 1]) / 2;
+        }
+    }
+
+
+
+    
+
+
     
     public static void main(String[] args){
         // System.out.println(reverse("Hello New World"));
